@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         back = findViewById(R.id.arrow_back);
         next = findViewById(R.id.next);
         info = findViewById(R.id.real_time_p);
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         final Fragment_info_perjalanan fragment_info_perjalanan = new Fragment_info_perjalanan();
-
         fragmentTransaction.replace(R.id.container, fragment_info_perjalanan).commit();
     }
 }
