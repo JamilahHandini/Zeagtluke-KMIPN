@@ -10,7 +10,6 @@
     android:id="@+id/home">
 
     <View
-
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -19,7 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
 
     <TextView
         android:id="@+id/real_time_p2"
@@ -88,10 +86,6 @@
             android:id="@+id/thropy"
             android:layout_width="367dp"
             android:layout_height="274dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="21dp"
             android:layout_marginTop="82dp"
             app:srcCompat="@drawable/trophy_perspective_matte_s" />
@@ -100,10 +94,6 @@
             android:id="@+id/dapat_diskon_greeting"
             android:layout_width="411dp"
             android:layout_height="33dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="1dp"
             android:layout_marginTop="355dp"
             android:layout_marginEnd="121dp"
@@ -148,16 +138,10 @@
             android:id="@+id/terusberpartisipasi"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="dp"
             android:layout_marginTop="500dp"
             android:gravity="top|center"
             android:text="Terus berpartisipasi dalam mengurangi jumlah kendaraan
             Mari kita jaga lingkungan! " />
-
 
     </FrameLayout>
 
@@ -175,10 +159,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975"
-        android:onClick="next"
-        >
+        android:onClick="next" >
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
