@@ -34,7 +34,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     progressStatus++;
                     binding.progressBar.setProgress(progressStatus);
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(25);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

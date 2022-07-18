@@ -15,8 +15,8 @@
     </style>
 
     <style name="ProgressBarStyle">
-        <item name="colorPrimary">@color/bar</item>
-        <item name="colorAccent">@color/h</item>
+        <item name="colorPrimary">@color/mainProgress</item>
+        <item name="colorAccent">@color/secondaryProgress</item>
     </style>
 
 </resources>
