@@ -79,15 +79,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"><![CDATA[
+
+
+        app:srcCompat="@drawable/data" />
+
+        ]]>
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imageView12"
             android:layout_width="313dp"
             android:layout_height="339dp"
-            app:srcCompat="@drawable/group_193"
             tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="250dp" />
+            tools:layout_editor_absoluteY="250dp"
+            app:srcCompat="@drawable/data" />
 
         <ImageView
             android:id="@+id/imageView8"
