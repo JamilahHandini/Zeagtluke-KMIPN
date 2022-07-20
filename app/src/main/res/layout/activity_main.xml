@@ -22,20 +22,20 @@
 
 
     <TextView
-        android:id="@+id/real_time_p"
+        android:id="@+id/action_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Real Time Perjalanan"
+        android:text="Beranda"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:fontFamily="@font/rubik"
         app:layout_constraintBottom_toBottomOf="@+id/back"
         app:layout_constraintEnd_toEndOf="@+id/back"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toEndOf="@+id/arrow_back"
         app:layout_constraintTop_toTopOf="@+id/back"
-        app:layout_constraintVertical_bias="0.414"
+        app:layout_constraintVertical_bias="0.39"
         app:textAllCaps="false" />
 
     <ImageButton
@@ -64,8 +64,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/next"

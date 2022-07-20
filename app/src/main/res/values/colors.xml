@@ -10,4 +10,7 @@
     <color name="h">#20204D</color>
     <color name="home">#000040</color>
     <color name="bar">#1E1E51</color>
+
+    <color name="mainProgress">#8CFFFFFF</color>
+    <color name="secondaryProgress">#73FFFFFF</color>
 </resources>
