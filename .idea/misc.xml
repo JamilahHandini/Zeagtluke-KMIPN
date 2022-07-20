@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/button_rounded.xml" value="0.1" />
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
@@ -14,6 +15,18 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/drawable/button_rounded.xml" value="0.1785" />
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_info_perjalanan.xml" value="0.2" />
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/reward.xml" value="0.25416666666666665" />
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/sim_digital.xml" value="0.24351851851851852" />
+        <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/sim_digital_feature.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+>>>>>>> 4d69b718bf87386007843673a409038d1a9fea5e
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
