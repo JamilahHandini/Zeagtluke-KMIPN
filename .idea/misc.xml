@@ -9,9 +9,15 @@
         <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/reward.xml" value="0.25416666666666665" />
         <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/sim_digital.xml" value="0.24351851851851852" />
         <entry key="..\:/Organisasi atau Lomba/KMIPN/Tim 2/Zeagtluke-KMIPN/app/src/main/res/layout/sim_digital_feature.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable-v24/indicator_selector.xml" value="0.164" />
+        <entry key="app/src/main/res/drawable-v24/navbar_selector.xml" value="0.164" />
+        <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.164" />
+        <entry key="app/src/main/res/drawable/style_bottom_nav.xml" value="0.164" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/reward.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/sim_digital_feature.xml" value="0.203125" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.20208333333333334" />
       </map>
     </option>
   </component>
