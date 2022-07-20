@@ -5,9 +5,15 @@
         android:title="Home"
         android:icon="@drawable/ic_outline_home_24" />
     <item
+<<<<<<< HEAD
         android:id="@+id/bookmark"
         android:title="Bookmark"
         android:icon="@drawable/ic_outline_bookmarks_24" />
+=======
+        android:id="@+id/perjalanan"
+        android:title="perjalanan"
+        android:icon="@drawable/ic_baseline_directions_car_24" />
+>>>>>>> 42cd362 (unknown)
 
     <item
         android:id="@+id/placeholder"

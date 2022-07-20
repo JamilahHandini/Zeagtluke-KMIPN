@@ -1,15 +1,24 @@
 package com.example.tollwisedriver;
 
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+>>>>>>> 42cd362 (unknown)
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+<<<<<<< HEAD
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+=======
+>>>>>>> 42cd362 (unknown)
 import com.example.tollwisedriver.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {

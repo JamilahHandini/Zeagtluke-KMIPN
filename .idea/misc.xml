@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
@@ -24,6 +25,30 @@
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/reward.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/sim_digital_feature.xml" value="0.203125" />
+=======
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/button_rounded.xml" value="0.1" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_outline_bookmarks_24.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_outline_home_24.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_outline_notifications_24.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_outline_person_24.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/ic_vector.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/navbar_selector.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable-v24/style_bottom_nav.xml" value="0.152" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/drawable/ic_baseline_directions_car_24.xml" value="0.1" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_info_perjalanan.xml" value="0.22" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_register.xml" value="0.33" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_reward.xml" value="0.1" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/fragment_sim_digital.xml" value="0.1" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/profil.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/layout/register.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/menu/bottom_nav.xml" value="0.20416666666666666" />
+        <entry key="..\:/Git KMIPN 2022/Zeagtluke-KMIPN/app/src/main/res/menu/menu.xml" value="0.20833333333333334" />
+>>>>>>> 42cd362 (unknown)
       </map>
     </option>
   </component>

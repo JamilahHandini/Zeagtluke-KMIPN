@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_register"
+    android:background="@color/home"
+    android:clipToOutline="true"
+    android:id="@+id/home">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah memiliki akun?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.436"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName8"
+            android:layout_width="44dp"
+            android:layout_height="36dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Login"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.697"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="594dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/egov_kita_1"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-32dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar Akun"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:fontFamily="@font/rubik_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.178"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="293dp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/group_194_1"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="531dp"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="321dp"
+            android:layout_height="196dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="333dp"
+            tools:ignore="MissingConstraints">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName2"
+                android:layout_width="321dp"
+                android:layout_height="37dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nama Lengkap"
+                android:textSize="15sp"
+                app:fontFamily="@font/rubik_light" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="321dp"
+                android:layout_height="37dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Username"
+                android:textSize="15sp"
+                app:fontFamily="@font/rubik_light" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="320dp"
+                android:layout_height="37dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="Nomor SIM"
+                android:textSize="15sp"
+                app:fontFamily="@font/rubik_light" />
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="321dp"
+                android:layout_height="37dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:text="Nomor Hp"
+                android:textSize="15sp"
+                app:fontFamily="@font/rubik_light" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="321dp"
+                android:layout_height="38dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:text="Email"
+                android:textSize="15sp"
+                app:fontFamily="@font/rubik_light" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

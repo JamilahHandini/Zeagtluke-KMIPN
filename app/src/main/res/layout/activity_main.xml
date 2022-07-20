@@ -19,6 +19,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintEnd_toEndOf="@+id/back"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="@+id/back"
+        app:layout_constraintTop_toTopOf="@+id/back"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/hello_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello,"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nama_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ikbal Alghifary"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ikbal"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="@+id/back"
+        app:layout_constraintTop_toTopOf="@+id/action_text" />
 
     <TextView
         android:id="@+id/real_time_p"
@@ -45,13 +89,14 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/ic_back"
         android:clipToOutline="true"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="@+id/back"
         app:layout_constraintEnd_toEndOf="@+id/back"
         app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="@+id/back"
         app:layout_constraintTop_toTopOf="@+id/back"
-        app:layout_constraintVertical_bias="0.4"
-        android:onClick="back"/>
+        app:layout_constraintVertical_bias="0.4" />
+
 
     <FrameLayout
         android:id="@+id/container"
@@ -65,22 +110,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/next"
-        android:layout_width="380dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bottom"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_gravity="top|center"
-        app:cardBackgroundColor="@color/bar"
-        app:cardCornerRadius="40dp"
-        app:cardElevation="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/style_bottom_nav"
+        android:backgroundTint="@color/home"
+        app:itemIconSize="25dp"
+        app:itemIconTint="@drawable/navbar_selector"
+        app:itemRippleColor="@color/white_20"
+        app:itemTextColor="@drawable/navbar_selector"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        android:onClick="next"
-        />
+        app:menu="@menu/bottom_nav">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_baseline_add_24"
+                app:tint="@null" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

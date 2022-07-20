@@ -10,7 +10,10 @@
     <color name="home">#000040</color>
     <color name="bar">#1E1E51</color>
 
+<<<<<<< HEAD
     <color name="white">#FFFFFFFF</color>
+=======
+>>>>>>> 42cd362 (unknown)
     <color name="white_75">#9FFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
 

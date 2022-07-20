@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
+<<<<<<< HEAD
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -77,5 +78,26 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+=======
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="322dp"
+            android:text="INIHOME"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:gravity="center"
+            app:fontFamily="@font/rubik" />
+
+    </RelativeLayout>
+
+
+>>>>>>> 42cd362 (unknown)
 
 </FrameLayout>
