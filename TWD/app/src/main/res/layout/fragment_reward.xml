@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_reward"
+    android:background="@color/home"
+    android:clipToOutline="true"
+    android:id="@+id/home">
+
+    <View
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/home"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/selamat"
+            android:layout_width="178dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-280dp"
+            android:gravity="top|center"
+            android:text="Selamat!!!"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            app:fontFamily="@font/rubik_bold" />
+
+        <ImageView
+            android:id="@+id/thropy"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-110dp"
+            app:srcCompat="@drawable/trophy_perspective_matte_s" />
+
+        <TextView
+            android:id="@+id/dapat_diskon_greeting"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Anda mendapatkan diskon"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:fontFamily="@font/rubik_bold" />
+
+        <TextView
+            android:id="@+id/limabelaspersen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            android:text="15%"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            app:fontFamily="@font/rubik_bold" />
+
+        <Button
+            android:id="@+id/klaim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="135dp"
+            android:background="@drawable/button_rounded"
+            android:text="Klaim"
+            android:textSize="18sp"
+            app:backgroundTint="#1778F1"
+            app:fontFamily="@font/rubik_bold" />
+
+        <TextView
+            android:id="@+id/terusberpartisipasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Terus berpartisipasi dalam mengurangi jumlah kendaraan
+            Mari kita jaga lingkungan! " />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
