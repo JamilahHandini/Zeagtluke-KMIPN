@@ -157,13 +157,14 @@ public class Fragment_info_perjalanan extends Fragment {
             @Override
             public void run() {
                 for(int i =0 ; i < 100; i++){
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            addEntry();
-                        }
-                    });
-
+                    if(getActivity()!=null){
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                addEntry();
+                            }
+                        });
+                    }
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
