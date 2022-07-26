@@ -91,6 +91,7 @@
             android:layout_marginTop="200dp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/white"
             android:text="Terus berpartisipasi dalam mengurangi jumlah kendaraan
             Mari kita jaga lingkungan! " />
 

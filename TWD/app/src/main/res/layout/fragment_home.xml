@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/home"
     tools:context=".HomeFragment">
 
 
@@ -20,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:elevation="0dp"
-                android:background="@android:color/transparent" />
+                />
 
         </LinearLayout>
 
@@ -32,25 +33,39 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/notif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="269dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="322dp"
+            android:layout_marginBottom="600dp"
             android:gravity="center"
-            android:text="INIHOME"
+            android:text="@string/warning"
             android:textColor="#FFFFFF"
-            android:textSize="50sp"
+            android:textSize="16sp"
+            android:visibility="invisible"
             app:fontFamily="@font/rubik" />
+
+        <ImageButton
+            android:id="@+id/topup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="380dp"
+            android:src="@drawable/ikbal" />
+
 
     </RelativeLayout>
 
-
->>>>>>> 42cd362 (unknown)
 
 </FrameLayout>
