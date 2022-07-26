@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/home"
+    tools:context=".Fragment_topup">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-250dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/rubik_bold"
+            android:text="Top Up Saldo"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="-50dp"
+            android:layout_marginBottom="100dp"
+            android:fontFamily="@font/rubik_bold"
+            android:text="Masukkan Nominal"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-50dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp" >
+
+            <EditText
+                android:id="@+id/saldo_topup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rp. "
+                android:textColor="@color/black" />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="100dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="#5656E6"
+            android:shadowColor="@color/black"
+            android:text="Top Up" />
+
+    </FrameLayout>
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "523444970913",
+    "project_id": "toll-wise-driver",
+    "storage_bucket": "toll-wise-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523444970913:android:634df6f96cff07769617e0",
+        "android_client_info": {
+          "package_name": "com.example.tollwisedriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523444970913-rjj412eu81gut5vm4csv12fcrt122ng9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7VTPXRikQrtm5t2L0ffw2r_AfsMMVOfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523444970913-rjj412eu81gut5vm4csv12fcrt122ng9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
