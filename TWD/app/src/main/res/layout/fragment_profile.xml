@@ -1,157 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment_profile"
-    android:background="@color/home"
-    android:clipToOutline="true"
-    android:id="@+id/home">
+    android:layout_height="match_parent" >
 
-
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="527dp"
-                android:layout_height="735dp"
-                android:src="@drawable/group_190"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="111dp" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="98dp"
-                android:layout_height="99dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.116"
-                app:srcCompat="@drawable/aa_3" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="340dp"
-                android:layout_height="517dp"
-                android:src="@drawable/rectangle_312"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="166dp" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
+                android:layout_width="547dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.947"
-                app:srcCompat="@drawable/group_192" />
+                android:layout_marginTop="60dp"
+                android:src="@drawable/group_190"
+                android:layout_marginStart="-60dp" />
 
             <LinearLayout
-                android:layout_width="318dp"
-                android:layout_height="355dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="214dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="45dp"
+                android:orientation="vertical" >
 
-                <EditText
-                    android:id="@+id/nama_lengkap"
-                    android:layout_width="90dp"
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@drawable/aa_3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Nama"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:paddingVertical="25dp"
+                    android:paddingHorizontal="25dp"
+                    android:background="@drawable/rectangle_312" >
 
-                <EditText
-                    android:id="@+id/alamat"
-                    android:layout_width="92dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Alamat"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
 
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="95dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Email"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
 
-                <EditText
-                    android:id="@+id/nomor_hp"
-                    android:layout_width="101dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="No. Telpon"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ikbal Alghifary"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
 
-                <EditText
-                    android:id="@+id/tgl_lahir"
-                    android:layout_width="96dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Tgl Lahir"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                    </RelativeLayout>
 
-                <EditText
-                    android:id="@+id/plat_nomor"
-                    android:layout_width="107dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="Plat Nomor"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
 
-                <EditText
-                    android:id="@+id/nomor_sim"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:text="No. SIM"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/rubik_bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/rubik" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Jalan Anggrek no. 14 Kecamatan Andir Barat Kota Bandung, Jawa Barat, Indonesia 4521"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:fontFamily="@font/rubik" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ikbalalghifary@gmail.com"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No. Telp"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(+62) 8123-4567-8910"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tgl Lahir"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="07/08/2001"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Plat Nomor"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="B 1745 KJ"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#E3CFCF" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nomor SIM"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/rubik" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="120042132125"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/rubik" />
+
+                    </RelativeLayout>
+
+                    <ImageButton
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="@android:color/transparent"
+                        app:srcCompat="@drawable/group_192" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

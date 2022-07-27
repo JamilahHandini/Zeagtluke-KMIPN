@@ -1,202 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment_info_perjalanan"
-    android:background="@color/home"
-    android:clipToOutline="true">
+    android:layout_height="match_parent" >
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        tools:context=".Fragment_info_perjalanan"
+        android:background="@color/home"
+        android:paddingBottom="120dp" >
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="top"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="504dp"
-            android:id="@+id/chart"
-            />
-
-        <ImageView
-            android:id="@+id/pointer"
-            android:layout_width="wrap_content"
-            android:layout_height="201dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="top"
-
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="460dp"
-            android:background="@drawable/pointer" />
-
-        <TextView
-            android:id="@+id/total_bayar"
-            android:layout_width="150dp"
-            android:layout_height="19dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="119dp"
-            android:layout_marginTop="213dp"
-            android:layout_marginEnd="121dp"
-            android:layout_marginBottom="417dp"
-            android:gravity="top|center"
-            android:text="@string/total_bayar"
-            android:textColor="#B9B2C4"
-            android:textSize="16sp"
-            app:fontFamily="@font/rubik" />
-
-        <TextView
-            android:id="@+id/total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="244dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="366dp"
-            android:gravity="top|center"
-            android:text="Rp. 32.000"
-            android:textColor="#FFFFFF"
-            android:textSize="32sp"
-            app:fontFamily="@font/rubik_bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="308dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="318dp"
-            android:paddingStart="20dp"
-            android:text="Informasi Perjalanan"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:fontFamily="@font/rubik" />
-
-        <ImageButton
-            android:id="@+id/down"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="340dp"
-            android:layout_marginLeft="340dp"
-            android:layout_marginTop="306dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="311dp"
-            android:background="@drawable/ic_down"
-            android:clipToOutline="true"
-            app:layout_constraintVertical_bias="0.4" />
-
-        <ImageView
-            android:id="@+id/gerbang"
-            android:layout_width="wrap_content"
-            android:layout_height="115dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="341dp"
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="194dp"
-            android:background="@drawable/gerbang" />
-
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="473dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="157dp"
-            android:paddingStart="30dp"
-            android:text="Pelintas Saat Ini"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:fontFamily="@font/rubik" />
+            android:layout_height="650dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="501dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="129dp"
-            android:paddingStart="30dp"
-            android:text="Keluar Tol"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:fontFamily="@font/rubik" />
+            <com.github.mikephil.charting.charts.LineChart
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="top"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="504dp"
+                android:id="@+id/chart"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="530dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="100dp"
-            android:paddingStart="30dp"
-            android:text="Rest Area"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:fontFamily="@font/rubik" />
+            <ImageView
+                android:id="@+id/pointer"
+                android:layout_width="wrap_content"
+                android:layout_height="201dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="top"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="560dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="70dp"
-            android:paddingStart="30dp"
-            android:text="Kemacetan"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:fontFamily="@font/rubik" />
-    </RelativeLayout>
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="460dp"
+                android:background="@drawable/pointer" />
 
+            <TextView
+                android:id="@+id/total_bayar"
+                android:layout_width="150dp"
+                android:layout_height="19dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="119dp"
+                android:layout_marginTop="213dp"
+                android:layout_marginEnd="121dp"
+                android:layout_marginBottom="417dp"
+                android:gravity="top|center"
+                android:text="@string/total_bayar"
+                android:textColor="#B9B2C4"
+                android:textSize="16sp"
+                app:fontFamily="@font/rubik" />
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="244dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="366dp"
+                android:gravity="top|center"
+                android:text="Rp. 32.000"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                app:fontFamily="@font/rubik_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="308dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="318dp"
+                android:paddingStart="20dp"
+                android:text="Informasi Perjalanan"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:fontFamily="@font/rubik" />
+
+            <ImageButton
+                android:id="@+id/down"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="340dp"
+                android:layout_marginLeft="340dp"
+                android:layout_marginTop="306dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="311dp"
+                android:background="@drawable/ic_down"
+                android:clipToOutline="true"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ImageView
+                android:id="@+id/gerbang"
+                android:layout_width="wrap_content"
+                android:layout_height="115dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="341dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="194dp"
+                android:background="@drawable/gerbang" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="473dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="157dp"
+                android:paddingStart="30dp"
+                android:text="Pelintas Saat Ini"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:fontFamily="@font/rubik" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="501dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="129dp"
+                android:paddingStart="30dp"
+                android:text="Keluar Tol"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:fontFamily="@font/rubik" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="530dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="100dp"
+                android:paddingStart="30dp"
+                android:text="Rest Area"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:fontFamily="@font/rubik" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="560dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="70dp"
+                android:paddingStart="30dp"
+                android:text="Kemacetan"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:fontFamily="@font/rubik" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</androidx.core.widget.NestedScrollView>

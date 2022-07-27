@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tollwisedriver.databinding.FragmentInfoPerjalananBinding;
-import com.example.tollwisedriver.databinding.FragmentProfileBinding;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -27,23 +25,21 @@ public class Fragment_info_perjalanan extends Fragment {
     FragmentInfoPerjalananBinding fragmentInfoPerjalananBinding;
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentInfoPerjalananBinding = FragmentInfoPerjalananBinding.inflate(inflater, container, false);
+        return fragmentInfoPerjalananBinding.getRoot();
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         fragmentInfoPerjalananBinding.chart.getDescription().setEnabled(true);
-
         fragmentInfoPerjalananBinding.chart.setTouchEnabled(true);
 
         fragmentInfoPerjalananBinding.chart.setDragEnabled(true);
@@ -82,7 +78,6 @@ public class Fragment_info_perjalanan extends Fragment {
         YAxis rightAxis = fragmentInfoPerjalananBinding.chart.getAxisRight();
         rightAxis.setEnabled(false);
 
-        return  fragmentInfoPerjalananBinding.getRoot();
     }
 
     private void addEntry() {
