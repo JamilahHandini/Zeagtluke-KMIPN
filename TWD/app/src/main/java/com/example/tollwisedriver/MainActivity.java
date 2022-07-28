@@ -1,23 +1,46 @@
 package com.example.tollwisedriver;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.tollwisedriver.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
+    private String key_user_etoll;
+
+    String channelnotif = "channelku" ;
+    String channelid = "default" ;
+    String message;
+
+    TextView txt;
+
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +51,90 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.navBottom.getMenu().getItem(2).setEnabled(false);
         activityMainBinding.arrowBack.setVisibility(View.INVISIBLE);
         activityMainBinding.actionText.setVisibility(View.INVISIBLE);
+
+        DatabaseReference driver = database.child("Drivers").child("dvr1");
+        driver.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String name = snapshot.child("nama").getValue().toString();
+                activityMainBinding.namaTxt.setText(name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        DatabaseReference database1 = FirebaseDatabase.getInstance().getReference().child("User_tolls").child("dvr1");
+       database1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                key_user_etoll = snapshot.getKey();
+                activityMainBinding.jmlPnp.setText(key_user_etoll);
+
+                String a =  activityMainBinding.jmlPnp.getText().toString();
+                if(a!= null){
+                    activityMainBinding.jmlPnp.setText(a);
+
+                    DatabaseReference perjalanan = database.child("Perjalanans").child(a);
+                    perjalanan.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String name = snapshot.child("jumlah_penumpang").getValue().toString();
+                            activityMainBinding.jmlPnp.setText(name);
+
+                            Integer number = Integer.valueOf(name);
+                            if(number == 4){
+
+                                message = "Kendaraan anda berpenumpang sebanyak " +
+                                        snapshot.child("jumlah_penumpang").getValue().toString() + " orang. \n Klaim reward Anda sekarang!";
+
+                            }else if(number == 1){
+                                message ="Anda terdeteksi berpenumpang tunggal \n Mohon Gunakan Kendaraan Umum!";
+                            }
+                            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity. this, channelid )
+                                    .setSmallIcon(R.drawable.logo)
+                                    .setContentTitle( "Hai Pengendara bijak!" )
+                                    .setContentText( message );
+                            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
+                            if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
+                                int importance = NotificationManager. IMPORTANCE_HIGH ;
+                                NotificationChannel notificationChannel = new
+                                        NotificationChannel( channelnotif , "contoh channel" , importance) ;
+                                notificationChannel.enableLights( true ) ;
+                                notificationChannel.setLightColor(Color. RED ) ;
+                                mBuilder.setChannelId( channelnotif ) ;
+                                assert mNotificationManager != null;
+                                mNotificationManager.createNotificationChannel(notificationChannel) ;
+                            }
+                            assert mNotificationManager != null;
+                            mNotificationManager.notify(( int ) System. currentTimeMillis (), mBuilder.build()) ;
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }else{
+                    activityMainBinding.namaTxt.setText("haha");
+                }
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         HomeFragment homeFragment = new HomeFragment();
         Fragment_info_perjalanan fragment_info_perjalanan= new Fragment_info_perjalanan();
