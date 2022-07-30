@@ -53,6 +53,25 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        realtime();
+                    }
+                });
+            }
+        }).start();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -84,112 +103,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-
-        DatabaseReference database1 = FirebaseDatabase.getInstance().getReference().child("User_tolls").child(drivers.getKey());
-        database1.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                key_user_etoll = snapshot.getKey();
-                activityMainBinding.jmlPnp.setText(key_user_etoll);
-
-                String a =  activityMainBinding.jmlPnp.getText().toString();
-                if(a!= null){
-                    activityMainBinding.jmlPnp.setText(a);
-                    Query query = FirebaseDatabase.getInstance().getReference()
-                            .child("Info_perjalanans").orderByChild("status_perjalanan").equalTo(true);
-
-                    query.addChildEventListener(new ChildEventListener() {
-                        @Override
-                        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                        }
-
-                        @Override
-                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                        }
-
-                        @Override
-                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                        }
-
-                        @Override
-                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot childSnapshot : snapshot.getChildren()){
-                                name = childSnapshot.child("jumlah_penumpang").getValue().toString();
-                            }
-                            activityMainBinding.jmlPnp.setText(name);
-                            if(name != null) {
-                                number = Integer.valueOf(name);
-                                if (number == 4) {
-                                    diskon = 0.15;
-                                    message = "Kendaraan anda berpenumpang sebanyak " +
-                                            name + " orang. \n Klaim reward Anda sekarang!";
-
-                                }else if(number == 3) {
-                                    diskon = 0.10;
-                                }else if(number == 2) {
-                                    diskon = 0.5;
-                                }else if (number == 1) {
-                                    message = "Anda terdeteksi berpenumpang tunggal \n Mohon Gunakan Kendaraan Umum!";
-                                }
-                                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.this, channelid)
-                                        .setSmallIcon(R.drawable.logo)
-                                        .setContentTitle("Hallo Pengendara Bijak!")
-                                        .setContentText(message);
-                                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                                    int importance = NotificationManager.IMPORTANCE_HIGH;
-                                    NotificationChannel notificationChannel = new
-                                            NotificationChannel(channelnotif, "contoh channel", importance);
-                                    notificationChannel.enableLights(true);
-                                    notificationChannel.setLightColor(Color.RED);
-                                    mBuilder.setChannelId(channelnotif);
-                                    assert mNotificationManager != null;
-                                    mNotificationManager.createNotificationChannel(notificationChannel);
-                                }
-                                assert mNotificationManager != null;
-                                mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                }else{
-                    activityMainBinding.namaTxt.setText("haha");
-                }
-            }
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
@@ -282,5 +195,112 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
+    }
+
+
+
+    public void realtime(){
+        DatabaseReference database1 = FirebaseDatabase.getInstance().getReference().child("User_tolls").child(drivers.getKey());
+        database1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                key_user_etoll = snapshot.getKey();
+                activityMainBinding.jmlPnp.setText(key_user_etoll);
+
+                String a =  activityMainBinding.jmlPnp.getText().toString();
+                if(a!= null){
+                    activityMainBinding.jmlPnp.setText(a);
+                    Query query = FirebaseDatabase.getInstance().getReference()
+                            .child("Info_perjalanans").orderByChild("status_perjalanan").equalTo(true);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot childSnapshot : snapshot.getChildren()){
+                                name = childSnapshot.child("jumlah_penumpang").getValue().toString();
+                            }
+
+                            activityMainBinding.jmlPnp.setText(name);
+
+                            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.this, channelid)
+                                    .setSmallIcon(R.drawable.logo)
+                                    .setContentTitle("Hallo Pengendara Bijak!");
+
+                            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                int importance = NotificationManager.IMPORTANCE_HIGH;
+                                NotificationChannel notificationChannel = new
+                                        NotificationChannel(channelnotif, "contoh channel", importance);
+                                notificationChannel.enableLights(true);
+                                notificationChannel.setLightColor(Color.RED);
+                                mBuilder.setChannelId(channelnotif);
+                                assert mNotificationManager != null;
+                                mNotificationManager.createNotificationChannel(notificationChannel);
+                            }
+
+                            if(name != null) {
+                                number = Integer.valueOf(name);
+                                if (number == 4) {
+                                    diskon = 0.15;
+                                    message = "Kendaraan anda berpenumpang sebanyak " +
+                                            name + " orang. \n Klaim reward Anda sekarang!";
+
+                                    mBuilder.setContentText(message);
+                                    assert mNotificationManager != null;
+                                    mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
+
+                                }else if(number == 3) {
+                                    message = "Kendaraan anda berpenumpang sebanyak " +
+                                            name + " orang. \n Klaim reward Anda sekarang!";
+
+                                    diskon = 0.10;
+                                    mBuilder.setContentText(message);
+                                    assert mNotificationManager != null;
+                                    mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
+                                }else if(number == 2) {
+                                    message = "Kendaraan anda berpenumpang sebanyak " +
+                                            name + " orang. \n Klaim reward Anda sekarang!";
+
+                                    diskon = 0.5;
+                                    mBuilder.setContentText(message);
+                                    assert mNotificationManager != null;
+                                    mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
+                                }else if (number == 1) {
+
+                                    message = "Kendaraan anda berpenumpang sebanyak " +
+                                            name + " orang. \n Klaim reward Anda sekarang!";
+
+                                    message = "Anda terdeteksi berpenumpang tunggal \n Mohon Gunakan Kendaraan Umum!";
+                                    mBuilder.setContentText(message);
+                                    assert mNotificationManager != null;
+                                    mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }else{
+                    activityMainBinding.namaTxt.setText("haha");
+                }
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
     }
 }
