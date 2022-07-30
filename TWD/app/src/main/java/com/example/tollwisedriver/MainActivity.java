@@ -16,29 +16,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tollwisedriver.databinding.ActivityMainBinding;
+import com.example.tollwisedriver.databinding.FragmentHomeBinding;
+import com.example.tollwisedriver.databinding.FragmentRewardBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
+    private FragmentHomeBinding homeBinding;
     private String key_user_etoll;
+
+    private Drivers drivers;
+    private  Info_perjalanans perjalanans = new Info_perjalanans();
 
     String channelnotif = "channelku" ;
     String channelid = "default" ;
-    String message;
+    String message, name;
 
-    TextView txt;
+    Integer number;
+    private double diskon;
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
@@ -46,13 +56,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        homeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
+
         setContentView(activityMainBinding.getRoot());
+        drivers = new Drivers();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+             drivers.setKey(extras.getString("key"));
+             String key = drivers.getKey();
+        }else{
+            Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_SHORT).show();
+        }
 
         activityMainBinding.navBottom.getMenu().getItem(2).setEnabled(false);
-        activityMainBinding.arrowBack.setVisibility(View.INVISIBLE);
+
         activityMainBinding.actionText.setVisibility(View.INVISIBLE);
 
-        DatabaseReference driver = database.child("Drivers").child("dvr1");
+        DatabaseReference driver = database.child("Drivers").child(drivers.getKey());
         driver.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -66,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DatabaseReference database1 = FirebaseDatabase.getInstance().getReference().child("User_tolls").child("dvr1");
-       database1.addChildEventListener(new ChildEventListener() {
+        DatabaseReference database1 = FirebaseDatabase.getInstance().getReference().child("User_tolls").child(drivers.getKey());
+        database1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 key_user_etoll = snapshot.getKey();
@@ -76,40 +97,76 @@ public class MainActivity extends AppCompatActivity {
                 String a =  activityMainBinding.jmlPnp.getText().toString();
                 if(a!= null){
                     activityMainBinding.jmlPnp.setText(a);
+                    Query query = FirebaseDatabase.getInstance().getReference()
+                            .child("Info_perjalanans").orderByChild("status_perjalanan").equalTo(true);
 
-                    DatabaseReference perjalanan = database.child("Perjalanans").child(a);
-                    perjalanan.addValueEventListener(new ValueEventListener() {
+                    query.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            String name = snapshot.child("jumlah_penumpang").getValue().toString();
+                            for(DataSnapshot childSnapshot : snapshot.getChildren()){
+                                name = childSnapshot.child("jumlah_penumpang").getValue().toString();
+                            }
                             activityMainBinding.jmlPnp.setText(name);
+                            if(name != null) {
+                                number = Integer.valueOf(name);
+                                if (number == 4) {
+                                    diskon = 0.15;
+                                    message = "Kendaraan anda berpenumpang sebanyak " +
+                                            name + " orang. \n Klaim reward Anda sekarang!";
 
-                            Integer number = Integer.valueOf(name);
-                            if(number == 4){
-
-                                message = "Kendaraan anda berpenumpang sebanyak " +
-                                        snapshot.child("jumlah_penumpang").getValue().toString() + " orang. \n Klaim reward Anda sekarang!";
-
-                            }else if(number == 1){
-                                message ="Anda terdeteksi berpenumpang tunggal \n Mohon Gunakan Kendaraan Umum!";
-                            }
-                            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity. this, channelid )
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle( "Hai Pengendara bijak!" )
-                                    .setContentText( message );
-                            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
-                            if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
-                                int importance = NotificationManager. IMPORTANCE_HIGH ;
-                                NotificationChannel notificationChannel = new
-                                        NotificationChannel( channelnotif , "contoh channel" , importance) ;
-                                notificationChannel.enableLights( true ) ;
-                                notificationChannel.setLightColor(Color. RED ) ;
-                                mBuilder.setChannelId( channelnotif ) ;
+                                }else if(number == 3) {
+                                    diskon = 0.10;
+                                }else if(number == 2) {
+                                    diskon = 0.5;
+                                }else if (number == 1) {
+                                    message = "Anda terdeteksi berpenumpang tunggal \n Mohon Gunakan Kendaraan Umum!";
+                                }
+                                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.this, channelid)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setContentTitle("Hallo Pengendara Bijak!")
+                                        .setContentText(message);
+                                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                    int importance = NotificationManager.IMPORTANCE_HIGH;
+                                    NotificationChannel notificationChannel = new
+                                            NotificationChannel(channelnotif, "contoh channel", importance);
+                                    notificationChannel.enableLights(true);
+                                    notificationChannel.setLightColor(Color.RED);
+                                    mBuilder.setChannelId(channelnotif);
+                                    assert mNotificationManager != null;
+                                    mNotificationManager.createNotificationChannel(notificationChannel);
+                                }
                                 assert mNotificationManager != null;
-                                mNotificationManager.createNotificationChannel(notificationChannel) ;
+                                mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
+
                             }
-                            assert mNotificationManager != null;
-                            mNotificationManager.notify(( int ) System. currentTimeMillis (), mBuilder.build()) ;
                         }
 
                         @Override
@@ -141,7 +198,11 @@ public class MainActivity extends AppCompatActivity {
         Fragment_sim_digital fragment_sim_digital = new Fragment_sim_digital();
         Fragment_profile fragment_profile = new Fragment_profile();
         Fragment_reward fragment_reward = new Fragment_reward();
+        Fragment_topup fragment_topup = new Fragment_topup();
 
+        Bundle b = new Bundle();
+        b.putString("key", drivers.getKey());
+        homeFragment.setArguments(b);
         makeCurrentFragment(homeFragment);
 
         activityMainBinding.navBottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -151,41 +212,52 @@ public class MainActivity extends AppCompatActivity {
                     case (R.id.home):
                         activityMainBinding.linearLayout.setVisibility(View.VISIBLE);
                         activityMainBinding.foto.setVisibility(View.VISIBLE);
-                        activityMainBinding.arrowBack.setVisibility(View.GONE);
                         activityMainBinding.actionText.setVisibility(View.GONE);
                         activityMainBinding.actionText.setText("");
+                        Bundle b = new Bundle();
+                        b.putString("key", drivers.getKey());
+                        homeFragment.setArguments(b);
                         makeCurrentFragment(homeFragment);
                         break;
                     case (R.id.perjalanan):
                         activityMainBinding.linearLayout.setVisibility(View.GONE);
                         activityMainBinding.foto.setVisibility(View.GONE);
-                        activityMainBinding.arrowBack.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Real Time Perjalanan");
+                        Bundle c = new Bundle();
+                        c.putString("key", drivers.getKey());
+                        fragment_info_perjalanan.setArguments(c);
                         makeCurrentFragment(fragment_info_perjalanan);
                         break;
                     case (R.id.placeholder):
                         activityMainBinding.linearLayout.setVisibility(View.GONE);
                         activityMainBinding.foto.setVisibility(View.GONE);
-                        activityMainBinding.arrowBack.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Sim Digital");
+                        Bundle d = new Bundle();
+                        d.putString("key", drivers.getKey());
+                        fragment_sim_digital.setArguments(d);
                         makeCurrentFragment(fragment_sim_digital);
                         break;
                     case (R.id.notification):
                         activityMainBinding.linearLayout.setVisibility(View.GONE);
                         activityMainBinding.foto.setVisibility(View.GONE);
-                        activityMainBinding.arrowBack.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Reward");
+                        Bundle reward = new Bundle();
+                        reward.putString("key", drivers.getKey());
+                        reward.putDouble("diskon", diskon);
+                        fragment_reward.setArguments(reward);
                         makeCurrentFragment(fragment_reward);
                         break;
                     case (R.id.profile):
                         activityMainBinding.linearLayout.setVisibility(View.GONE);
                         activityMainBinding.foto.setVisibility(View.GONE);
-                        activityMainBinding.arrowBack.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Profile");
+                        Bundle f = new Bundle();
+                        f.putString("key", drivers.getKey());
+                        fragment_profile.setArguments(f);
                         makeCurrentFragment(fragment_profile);
                         break;
                 }

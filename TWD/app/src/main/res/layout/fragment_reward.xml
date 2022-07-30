@@ -37,18 +37,20 @@
 
             <TextView
                 android:id="@+id/selamat"
-                android:layout_width="178dp"
+                android:layout_width="wrap_content"
                 android:layout_height="43dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="-280dp"
                 android:gravity="top|center"
-                android:text="Selamat!!!"
+                android:text="@string/belum_punya"
                 android:textColor="#FFFFFF"
-                android:textSize="35sp"
-                app:fontFamily="@font/rubik_bold" />
+                android:textSize="20sp"
+                app:fontFamily="@font/rubik_bold"
+                />
 
             <ImageView
                 android:id="@+id/thropy"
+                android:visibility="invisible"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
@@ -56,21 +58,24 @@
                 app:srcCompat="@drawable/trophy_perspective_matte_s" />
 
             <TextView
-                android:id="@+id/dapat_diskon_greeting"
-                android:layout_height="wrap_content"
+                android:id="@+id/dapat_diskon"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginTop="50dp"
-                android:text="Anda mendapatkan diskon"
+                android:text="Anda mendapatkan potongan tarif pembayaran \n untuk perjalanan saat ini."
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:fontFamily="@font/rubik_bold" />
 
             <TextView
-                android:id="@+id/limabelaspersen"
+                android:id="@+id/persen"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="100dp"
                 android:layout_gravity="center"
                 android:text="15%"
                 android:textColor="#FFFFFF"
@@ -79,6 +84,7 @@
 
             <Button
                 android:id="@+id/klaim"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -97,6 +103,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/white"
+
                 android:text="Terus berpartisipasi dalam mengurangi jumlah kendaraan
             Mari kita jaga lingkungan! " />
 

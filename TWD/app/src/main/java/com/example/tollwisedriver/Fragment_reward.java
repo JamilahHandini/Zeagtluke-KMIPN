@@ -17,6 +17,7 @@ public class Fragment_reward extends Fragment{
 
 
     private FragmentRewardBinding binding;
+    private double diskon;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -32,6 +33,19 @@ public class Fragment_reward extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentRewardBinding.inflate(inflater, container, false);
+        Bundle bundle = getArguments();
+        diskon = bundle.getDouble("diskon");
+        String disc = String.valueOf((int)(diskon * 100));
+
+        if(diskon != 0.0){
+            binding.persen.setText(disc +  "%");
+            binding.selamat.setText(R.string.punya_reward);
+            binding.selamat.setTextSize(30);
+            binding.thropy.setVisibility(View.VISIBLE);
+            binding.dapatDiskon.setVisibility(View.VISIBLE);
+            binding.klaim.setVisibility(View.VISIBLE);
+            binding.persen.setVisibility(View.VISIBLE);
+        }
         return binding.getRoot();
     }
 

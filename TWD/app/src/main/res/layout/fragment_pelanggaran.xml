@@ -25,13 +25,15 @@
         android:fontFamily="@font/rubik_bold"
         android:gravity="center"
         android:layout_gravity="top|center"
+        android:textColor="@color/white"
         android:layout_marginTop="135dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="200dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/course_rcy"
+        android:layout_gravity="top|center"
+        android:id="@+id/rcy_pelanggaran"
         />
 
 </FrameLayout>

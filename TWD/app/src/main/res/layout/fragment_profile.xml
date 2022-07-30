@@ -61,42 +61,16 @@
                             app:fontFamily="@font/rubik" />
 
                         <TextView
+                            android:id="@+id/nama_lengkap"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ikbal Alghifary"
                             android:layout_alignParentEnd="true"
+                            android:text="Ikbal Alghifary"
                             android:textColor="@color/black"
                             android:textSize="17sp"
                             app:fontFamily="@font/rubik" />
 
                     </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="#E3CFCF" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alamat"
-                        android:layout_alignParentLeft="true"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:layout_marginTop="10dp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/rubik" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Jalan Anggrek no. 14 Kecamatan Andir Barat Kota Bandung, Jawa Barat, Indonesia 4521"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        app:fontFamily="@font/rubik" />
 
                     <View
                         android:layout_width="match_parent"
@@ -120,12 +94,15 @@
                             app:fontFamily="@font/rubik" />
 
                         <TextView
+                            android:id="@+id/email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ikbalalghifary@gmail.com"
                             android:layout_alignParentEnd="true"
+                            android:layout_marginStart="33dp"
+
+                            android:text="ikbalalghifary@gmail.com"
                             android:textColor="@color/black"
-                            android:textSize="17sp"
+                            android:textSize="15sp"
                             app:fontFamily="@font/rubik" />
 
                     </RelativeLayout>
@@ -152,47 +129,17 @@
                             app:fontFamily="@font/rubik" />
 
                         <TextView
+                            android:id="@+id/nomor_hp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:text="(+62) 8123-4567-8910"
-                            android:layout_alignParentEnd="true"
                             android:textColor="@color/black"
                             android:textSize="17sp"
                             app:fontFamily="@font/rubik" />
 
                     </RelativeLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="#E3CFCF" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tgl Lahir"
-                            android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/rubik" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="07/08/2001"
-                            android:layout_alignParentEnd="true"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"
-                            app:fontFamily="@font/rubik" />
-
-                    </RelativeLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -216,6 +163,7 @@
                             app:fontFamily="@font/rubik" />
 
                         <TextView
+                            android:id="@+id/plat_nomor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="B 1745 KJ"
@@ -248,6 +196,7 @@
                             app:fontFamily="@font/rubik" />
 
                         <TextView
+                            android:id="@+id/nomor_sim"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="120042132125"
@@ -259,7 +208,7 @@
                     </RelativeLayout>
 
                     <ImageButton
-                        android:id="@+id/imageView8"
+                        android:id="@+id/logout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
