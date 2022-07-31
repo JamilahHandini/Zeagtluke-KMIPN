@@ -52,24 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        realtime();
-                    }
-                });
-            }
-        }).start();
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_SHORT).show();
         }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                realtime();
+            }
+        }).start();
+
 
         activityMainBinding.navBottom.getMenu().getItem(2).setEnabled(false);
 
@@ -261,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
                                     message = "Kendaraan anda berpenumpang sebanyak " +
                                             name + " orang. \n Klaim reward Anda sekarang!";
 
-                                    diskon = 0.5;
+                                    diskon = 0.05;
                                     mBuilder.setContentText(message);
                                     assert mNotificationManager != null;
                                     mNotificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
