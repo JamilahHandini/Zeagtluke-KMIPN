@@ -12,12 +12,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tollwisedriver.databinding.FragmentRewardBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Fragment_reward extends Fragment{
 
 
     private FragmentRewardBinding binding;
+
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+    private Drivers drivers = new Drivers();
+    private  Info_perjalanans perjalanans = new Info_perjalanans();
+
     private double diskon;
 
     @Override
@@ -35,7 +47,11 @@ public class Fragment_reward extends Fragment{
                              Bundle savedInstanceState) {
         binding = FragmentRewardBinding.inflate(inflater, container, false);
         Bundle bundle = getArguments();
-        diskon = bundle.getDouble("diskon");
+        if(bundle != null) {
+            drivers.setKey(bundle.getString("key"));
+            perjalanans.setId(bundle.getString("key_p"));
+            diskon = bundle.getDouble("diskon");
+        }
         String disc = String.valueOf((int)(diskon * 100));
 
         if(diskon != 0.0){
@@ -51,7 +67,25 @@ public class Fragment_reward extends Fragment{
         binding.klaim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Reward berhasil di klaim",Toast.LENGTH_SHORT).show();
+
+                database.child("Info_perjalanans").child(perjalanans.getId()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        perjalanans = snapshot.getValue(Info_perjalanans.class);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                database.child("Info_perjalanans").child(perjalanans.getId())
+                        .setValue(perjalanans).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(), "Reward berhasil di klaim",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
         return binding.getRoot();

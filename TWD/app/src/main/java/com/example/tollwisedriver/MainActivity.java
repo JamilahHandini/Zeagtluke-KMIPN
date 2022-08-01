@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     String channelnotif = "channelku" ;
     String channelid = "default" ;
-    String message, name;
+    String message, name, key_p, key_d;
 
     Integer number;
     private double diskon;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
              drivers.setKey(extras.getString("key"));
-             String key = drivers.getKey();
+             key_d = drivers.getKey();
         }else{
             Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_SHORT).show();
         }
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.navBottom.getMenu().getItem(2).setEnabled(false);
 
         activityMainBinding.actionText.setVisibility(View.INVISIBLE);
-
         DatabaseReference driver = database.child("Drivers").child(drivers.getKey());
         driver.addValueEventListener(new ValueEventListener() {
             @Override
@@ -105,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle b = new Bundle();
         b.putString("key", drivers.getKey());
+        b.putString("key_p", perjalanans.getId());
+        b.putDouble("diskon", diskon);
         homeFragment.setArguments(b);
         makeCurrentFragment(homeFragment);
 
@@ -129,16 +130,19 @@ public class MainActivity extends AppCompatActivity {
                         activityMainBinding.actionText.setText("Real Time Perjalanan");
                         Bundle c = new Bundle();
                         c.putString("key", drivers.getKey());
+                        c.putString("key_p", key_p);
+                        c.putDouble("diskon", diskon);
                         fragment_info_perjalanan.setArguments(c);
                         makeCurrentFragment(fragment_info_perjalanan);
                         break;
-                    case (R.id.placeholder):
+                    case (R.id.fab):
                         activityMainBinding.linearLayout.setVisibility(View.GONE);
                         activityMainBinding.foto.setVisibility(View.GONE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Sim Digital");
                         Bundle d = new Bundle();
                         d.putString("key", drivers.getKey());
+                        d.putString("key_p", perjalanans.getId());
                         fragment_sim_digital.setArguments(d);
                         makeCurrentFragment(fragment_sim_digital);
                         break;
@@ -147,10 +151,11 @@ public class MainActivity extends AppCompatActivity {
                         activityMainBinding.foto.setVisibility(View.GONE);
                         activityMainBinding.actionText.setVisibility(View.VISIBLE);
                         activityMainBinding.actionText.setText("Reward");
-                        Bundle reward = new Bundle();
-                        reward.putString("key", drivers.getKey());
-                        reward.putDouble("diskon", diskon);
-                        fragment_reward.setArguments(reward);
+                        Bundle e = new Bundle();
+                        e.putString("key", drivers.getKey());
+                        e.putString("key_p", perjalanans.getId());
+                        e.putDouble("diskon", diskon);
+                        fragment_reward.setArguments(e);
                         makeCurrentFragment(fragment_reward);
                         break;
                     case (R.id.profile):
@@ -206,9 +211,11 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot childSnapshot : snapshot.getChildren()){
+                                key_p = childSnapshot.getKey();
                                 name = childSnapshot.child("jumlah_penumpang").getValue().toString();
                             }
-
+                            activityMainBinding.jmlPnp.setText(key_p);
+                            perjalanans.setId(activityMainBinding.jmlPnp.getText().toString());
                             activityMainBinding.jmlPnp.setText(name);
 
                             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.this, channelid)

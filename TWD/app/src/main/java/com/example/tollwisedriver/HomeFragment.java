@@ -26,7 +26,10 @@ public class HomeFragment extends Fragment {
     private DatabaseReference database;
     private  Drivers drivers = new Drivers();
 
+    private  Info_perjalanans perjalanans = new Info_perjalanans();
 
+    private String key_p;
+    private  double sld, diskon;
 
     private FragmentHomeBinding binding;
 
@@ -36,6 +39,8 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         Bundle bundle = getArguments();
         drivers.setKey(bundle.getString("key"));
+        key_p= bundle.getString("key_p");
+        sld = bundle.getDouble("diskon");
         return binding.getRoot();
     }
 
@@ -65,6 +70,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment_info_perjalanan fragment_info_perjalanan = new Fragment_info_perjalanan();
+                Bundle b = new Bundle();
+                b.putString("key", drivers.getKey());
+                b.putString("key_p", perjalanans.getId());
+                b.putDouble("diskon", diskon);
+                fragment_info_perjalanan.setArguments(b);
                 FragmentManager mFragmentManager = getFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
                 mFragmentTransaction.replace(R.id.container, fragment_info_perjalanan, Fragment_topup.class.getSimpleName());
@@ -77,6 +87,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment_pelanggaran fragment_pelanggaran = new Fragment_pelanggaran();
+                Bundle b = new Bundle();
+                b.putString("key", drivers.getKey());
+                b.putString("key_p", perjalanans.getId());
+                b.putDouble("diskon", diskon);
+                fragment_pelanggaran.setArguments(b);
                 FragmentManager mFragmentManager = getFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
                 mFragmentTransaction.replace(R.id.container, fragment_pelanggaran, Fragment_topup.class.getSimpleName());
@@ -89,6 +104,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment_sim_digital fragment_sim_digital = new Fragment_sim_digital();
+                Bundle b = new Bundle();
+                b.putString("key", drivers.getKey());
+                b.putString("key_p", perjalanans.getId());
+                b.putDouble("diskon", diskon);
+                fragment_sim_digital.setArguments(b);
                 FragmentManager mFragmentManager = getFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
                 mFragmentTransaction.replace(R.id.container, fragment_sim_digital, Fragment_topup.class.getSimpleName());
@@ -101,6 +121,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment_reward fragment_reward = new Fragment_reward();
+                Bundle b = new Bundle();
+                b.putString("key", drivers.getKey());
+                b.putString("key_p", perjalanans.getId());
+                b.putDouble("diskon", diskon);
+                fragment_reward.setArguments(b);
                 FragmentManager mFragmentManager = getFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
                 mFragmentTransaction.replace(R.id.container, fragment_reward, Fragment_topup.class.getSimpleName());

@@ -3,7 +3,8 @@ package com.example.tollwisedriver;
 public class Info_perjalanans {
     private String id, tanggal;
     private  boolean status_perjalanan;
-    private  int jumlah_penumpang;
+    private  int jumlah_penumpang, jarak;
+    private double diskon;
 
     public Info_perjalanans(String id, String tanggal, boolean status_perjalanan, int jumlah_penumpang) {
         this.id = id;
@@ -11,9 +12,28 @@ public class Info_perjalanans {
         this.status_perjalanan = status_perjalanan;
         this.jumlah_penumpang = jumlah_penumpang;
     }
+    public Info_perjalanans(double diskon){
+        this.diskon = diskon;
+    }
 
     public  Info_perjalanans(){
 
+    }
+
+    public int getJarak() {
+        return jarak;
+    }
+
+    public double getDiskon() {
+        return diskon;
+    }
+
+    public void setJarak(int jarak) {
+        this.jarak = jarak;
+    }
+
+    public void setDiskon(int diskon) {
+        this.diskon = diskon;
     }
 
     public void setId(String id) {
